@@ -5,6 +5,9 @@ body {
     font-size: .75em;
     color: #666;
 }
+#date_select a {
+    text-decoration: none;
+}
 .date_select {
     font-size: 1.15em;
     background-color: #F6F6F6;
