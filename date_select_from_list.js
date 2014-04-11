@@ -20,6 +20,7 @@
             date_day_list_children[ii].className += '  date_select_day_current';
         }
     }
+
     var date_year_list_children = document.getElementById('date_select_year').getElementsByTagName('a');
     for ( var ii = 0, year_len = date_year_list_children.length; ii < year_len; ii++ ) {
         if ( current_year == date_year_list_children[ii].innerHTML ) {
@@ -52,18 +53,18 @@
             var date_select_text = document.getElementById('date_select_text');
             var date_select_values;
             if ( date_select_values = 
-                date_select_text.innerHTML.match(/^([A-Z][a-z]{2}\.?)? ?((&nbsp;|\d)\d)?(, )?(\d{4})?$/) ) {
+                date_select_text.innerHTML.match(/^([A-Z][a-z]{2}\.?)? ?(\d{1,2})?(, )?(\d{4})?$/) ) {
 
                 var select_month, select_day, select_year;
                 if ( target.innerHTML.match(/^[A-Z][a-z]{2}\.?$/) ) {
                     select_month = target.innerHTML;
                     select_day   = ( date_select_values[2] )? date_select_values[2]: '';
-                    select_year  = ( date_select_values[5] )? date_select_values[5]: '';
+                    select_year  = ( date_select_values[4] )? date_select_values[4]: '';
                 }
                 else if ( target.innerHTML.match(/^(&nbsp;|\d)\d$/) ) {
                     select_month = ( date_select_values[1] )? date_select_values[1]: '';
                     select_day   = target.innerHTML.replace('&nbsp;', '');
-                    select_year  = ( date_select_values[5] )? date_select_values[5]: '';
+                    select_year  = ( date_select_values[4] )? date_select_values[4]: '';
                 }
                 else if ( target.innerHTML.match(/^\d{4}$/) ) {
                     select_month = ( date_select_values[1] )? date_select_values[1]: '';
@@ -81,7 +82,8 @@
                 }
             }
             else {
-                date_select_text.innerHTML = target.innerHTML;
+                var select_value = target.innerHTML.replace('&nbsp;', '');
+                date_select_text.innerHTML = select_value;
             }
             return true;
         }
