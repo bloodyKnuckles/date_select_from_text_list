@@ -1,0 +1,31 @@
+body {
+    font-family: sans-serif;
+}
+#date_select {
+    font-size: .75em;
+    color: #666;
+}
+.date_select {
+    font-size: 1.15em;
+    background-color: #F6F6F6;
+    border: solid 1px #F6F6F6;
+}
+.date_select:hover {
+    background-color: yellow;
+    border: solid 1px #999;
+}
+#date_select_month {
+    margin-bottom: .25em;
+}
+#date_select_day {
+    margin-bottom: .25em;
+}
+.date_select_month_current, .date_select_day_current, .date_select_year_current {
+    font-weight: bold;
+    background-color: pink;
+    border: solid 1px pink;
+}
+.date_select_month_current:hover, .date_select_day_current:hover, .date_select_year_current:hover {
+    background-color: deeppink;
+    border: solid 1px #999;
+}
