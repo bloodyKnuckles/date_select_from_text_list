@@ -1,9 +1,31 @@
 (function () {
 
+    var months = ['', 'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
     var current_time  = new Date();
-    var current_year  = current_time.getFullYear();
     var current_month = current_time.getMonth() + 1;
     var current_day   = current_time.getDate();
+    var current_year  = current_time.getFullYear();
+
+    var date_month_list_children = document.getElementById('date_select_month').getElementsByTagName('a');
+    for ( var ii = 0, month_len = date_month_list_children.length; ii < month_len; ii++ ) {
+        if ( months[current_month] == date_month_list_children[ii].innerHTML ) {
+            date_month_list_children[ii].className += '  date_select_month_current';
+        }
+    }
+
+    var date_day_list_children = document.getElementById('date_select_day').getElementsByTagName('a');
+    for ( var ii = 0, day_len = date_day_list_children.length; ii < day_len; ii++ ) {
+        var day_value = date_day_list_children[ii].innerHTML.replace('&nbsp;', '');
+        if ( current_day == day_value ) {
+            date_day_list_children[ii].className += '  date_select_day_current';
+        }
+    }
+    var date_year_list_children = document.getElementById('date_select_year').getElementsByTagName('a');
+    for ( var ii = 0, year_len = date_year_list_children.length; ii < year_len; ii++ ) {
+        if ( current_year == date_year_list_children[ii].innerHTML ) {
+            date_year_list_children[ii].className += '  date_select_year_current';
+        }
+    }
 
     function myHandler(e) {
         e = e || window.event;
